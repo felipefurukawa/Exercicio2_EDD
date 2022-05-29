@@ -39,9 +39,15 @@ public class Estoque {
 		aux2 = inicio;
 		for(int i = 0; i < cont-1; i++) {
 			aux2 = aux2.dir;
-		} 
-		aux.dir = aux2.esq;
+		}
+        
+        aux.esq = aux2;
+		aux2.dir.esq = aux;
+		aux.dir = aux2.dir;
 		aux2.dir = aux;
+        aux2 = aux2.dir;
+        
+		
 		}
     }
 
@@ -59,7 +65,7 @@ public class Estoque {
     }
 
     public static void imprimir(){
-        
+
         No aux = inicio;
         if(inicio==null){
             JOptionPane.showMessageDialog(null,"Nenhum produto cadastrado!");
