@@ -16,10 +16,10 @@ public class Main {
 						Util.cadastrarProduto();
 						break;
 					case "2":
-						Util.listarProduto();
+						Util.listarProdutos();
 						break;
 					case "3":
-						Util.VenderProduto();
+						//Util.VenderProduto();
 						break;
                 	case "4":
 						exit = true;
