@@ -7,6 +7,8 @@ public class Estoque {
     static No inicio;
     static No fim;
 
+    static int tamanhoEstq;
+
     public static void inserir(Produto produto) {
 
         No aux = new No(produto);
@@ -49,6 +51,8 @@ public class Estoque {
         
 		
 		}
+
+        tamanhoEstq++;  
     }
 
     public static No pesquisar(String nome){
@@ -74,6 +78,37 @@ public class Estoque {
                 JOptionPane.showMessageDialog(null,aux.produto);
                 aux = aux.dir;
             }
+    }
+
+    public static boolean Remover(String nome){
+
+        No aux = pesquisar(nome);
+        boolean removido = false;
+
+        if(aux != null){
+            if(tamanhoEstq == 1){
+                aux.dir = null;
+                aux.esq = null;
+                inicio = null;
+                fim = null;
+            } else if(aux == inicio){
+                inicio = aux.dir;
+                inicio.esq = null;
+                aux.dir = null;
+            } else if(aux == fim){
+                fim = aux.esq;
+                fim.dir = null;
+                aux.esq = null;
+            } else{
+                aux.esq.dir = aux.dir;
+                aux.dir.esq = aux.esq;
+                aux.dir = null;
+                aux.esq = null;
+            }
+            tamanhoEstq--;
+            removido = true;
+        }
+        return removido;
     }
 
 
