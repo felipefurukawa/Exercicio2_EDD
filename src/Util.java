@@ -23,7 +23,7 @@ public class Util {
             Estoque.inserir(produto);
 
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!!");
-        } else{
+        } else {
             JOptionPane.showMessageDialog(null, "Este produto já está no sistema!");
         }
     }
@@ -55,13 +55,15 @@ public class Util {
 
                 JOptionPane.showMessageDialog(null, "A quantidade inserida ultrapassa nossa disponibilidade 😰");
            
-            } else{
+            } else {
 
                 aux.produto.reduzirEstoque(quantidade);
 
                 JOptionPane.showMessageDialog(null, "A venda foi um sucesso! 🤑");
 
-                if(aux.produto.estoque == 0) Estoque.Remover(nome);
+                if(aux.produto.estoque == 0) {
+                    Estoque.Remover(nome);
+                }
             }
         }
     }

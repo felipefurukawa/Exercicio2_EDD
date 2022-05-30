@@ -51,8 +51,6 @@ public class Estoque {
         
 		
 		}
-
-        tamanhoEstq++;  
     }
 
     public static No pesquisar(String nome){
@@ -71,7 +69,7 @@ public class Estoque {
     public static void imprimir(){
 
         No aux = inicio;
-        if(inicio==null){
+        if(inicio == null){
             JOptionPane.showMessageDialog(null,"Nenhum produto cadastrado!");
         }
             while(aux != null){
@@ -86,7 +84,7 @@ public class Estoque {
         boolean removido = false;
 
         if(aux != null){
-            if(tamanhoEstq == 1){
+            if(aux == inicio && aux == fim){
                 aux.dir = null;
                 aux.esq = null;
                 inicio = null;
@@ -99,13 +97,12 @@ public class Estoque {
                 fim = aux.esq;
                 fim.dir = null;
                 aux.esq = null;
-            } else{
+            } else {
                 aux.esq.dir = aux.dir;
                 aux.dir.esq = aux.esq;
                 aux.dir = null;
                 aux.esq = null;
             }
-            tamanhoEstq--;
             removido = true;
         }
         return removido;
