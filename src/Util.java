@@ -34,8 +34,38 @@ public class Util {
         
     }
 
+    public static void VenderProduto(){
 
+        String nome = JOptionPane.showInputDialog("Nome do produto a ser vendido: ");
+        No aux = Estoque.pesquisar(nome);
+
+        if(aux == null){
+
+            JOptionPane.showMessageDialog(null, "O produto digitado não foi encontrado 🙃");
+
+        } else{
+
+            JOptionPane.showMessageDialog(null, "Produto: " + aux.produto.nome +
+                "\nData de validade: " + aux.produto.validade + "\nQuantidade em estoque: " + 
+            aux.produto.estoque);
+
+            int quantidade = Integer.parseInt(JOptionPane.showInputDialog("Qual será a quantidade de produtos a ser vendida? "));
+
+            if(quantidade > aux.produto.estoque) {
+
+                JOptionPane.showMessageDialog(null, "A quantidade inserida ultrapassa nossa disponibilidade 😰");
+           
+            } else{
+
+                aux.produto.reduzirEstoque(quantidade);
+
+                JOptionPane.showMessageDialog(null, "A venda foi um sucesso! 🤑");
+
+                if(aux.produto.estoque == 0) Estoque.Remover(nome);
+            }
+        }
     }
+}
 
       
 

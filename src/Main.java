@@ -1,4 +1,6 @@
 package src;
+import static src.Util.VenderProduto;
+
 import javax.swing.JOptionPane;
 
 public class Main {
@@ -19,7 +21,7 @@ public class Main {
 						Util.listarProdutos();
 						break;
 					case "3":
-						//Util.VenderProduto();
+						VenderProduto();
 						break;
                 	case "4":
 						exit = true;
